@@ -1,0 +1,88 @@
+<view class="content">
+  <view class="left">
+   
+    <block wx:for="{{Devc}}">
+    <view class="{{(item.devc_id==flag)?'select':'normal'}}" data-item-id="{{item.devc_id}}"
+     data-index="{{index + 1}}" style="{{(item.devc_status==3)?'color:red':''   }}" 
+    
+     bindtap="switchNav" data-MAIN-id="{{item._id}}"
+    bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindlongpress="handleLongPress">
+          {{item.devc_name}}
+     </view>
+          <view class="normal"  bindtap="add_showDialogBtn" wx:if="{{index==Devc.length-1}}">
+                     添加
+                    </view> 
+    </block>
+  </view>
+
+
+
+  <view class="right">
+    <view class="category">
+     
+       <!-- <swiper current="{{currentTab}}" style="height:500px;"> -->
+         <swiper current="{{currentTab}}" style="height:500px;">
+         
+              <swiper-item>  </swiper-item>
+        
+               <block wx:for="{{Devc}}">
+               <swiper-item>
+                    设备运行状态：<text wx:if="{{item.devc_status==1}}"> 正常运行</text>
+                                  <text wx:elif="{{item.devc_status==2}}"> 设备空闲</text>
+                                  <text wx:elif="{{item.devc_status==3}}"> 设备停机</text>
+                                  <view></view>
+                    <!-- <text wx:for="{{Devc}}">评论：{{item.devc_id}} 
+
+                    <text bindtap="seeDetail"></text>  </text> -->
+
+                         <!-- <block wx:for="{{devc_status_time}}"> -->
+                        <view>设备编号：{{devc_status_time[0].devc_id}} </view>
+                        <view>运行时间：{{devc_status_time[1].sum_time}}分钟 </view>
+                        <view>空闲时间：{{devc_status_time[2].sum_time}}分钟 </view>
+                        <view>停机时间：{{devc_status_time[3].sum_time}}分钟 </view>
+                         <!-- </block> -->
+
+
+
+                    <include src="tttj.wxml"/>
+              </swiper-item>
+          </block>
+       </swiper>
+    </view>
+  </view>
+</view>
+
+
+    <!--添加操作弹窗-->
+  <view class="modal-mask" bindtap="add_hideModal" catchtouchmove="add_preventTouchMove" wx:if="{{add_showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{add_showModal}}">
+    <view class="modal-title">添加设备</view>
+    <view class="modal-content">
+
+    <view class="modal-input">
+        <input placeholder-class="input-holder"  maxlength="30" bindinput="inputChange_name"
+         value="{{telValue_name}}" class="input" placeholder="设备名称"></input>
+      </view>
+   
+   
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="add_onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="add_onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+    <!--删除操作弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal&&flagg==1}}">
+    <view class="modal-title">删除操作</view>
+    <view class="modal-content">
+         <text  class="modal-title" >确认删除？</text>
+    </view>
+
+    
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+

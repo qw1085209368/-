@@ -1,0 +1,31 @@
+<view class="container">
+  <view style="text-align:center">拖动图表查看</view>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+  
+    <!-- <view wx:for="{{producation}}">
+                        <view>产品：{{item.name}} </view>
+                        <view>数目：{{item.count}}分钟 </view>
+                        <view>生产时间：{{item.create_time}}分钟 </view>
+                        <view>设备id：{{item.devc_id}}分钟 </view>
+
+    </view> -->
+
+    <view class="table">
+        <view class="tr">
+            <!-- <view class="th">报警编号</view> -->
+            <view class="td">产品</view>
+            <view class="td">数目</view>
+            <view class="td">设备id</view>
+            <view class="td">生产时间</view>
+        </view>
+
+        <view class="tr"  wx:for="{{producation}}">
+             <!-- <view class="td">{{item.alarm_id}}</view> -->
+               <view class="td">{{item.name}}</view>
+              <view class="td">{{item.count}}</view>
+            <view class="td">{{item.devc_id}}</view>
+            <view class="td">{{item.create_time}}</view>
+        </view>
+    </view>
+              
+</view>

@@ -1,0 +1,63 @@
+{
+  "pages": [
+        "pages/me/me",
+    "pages/index/index",
+    "pages/note1/note1",
+  
+   
+  
+   
+      "pages/note2/note2",
+    
+  "pages/storageConsole/storageConsole",
+   
+      "pages/list/list",
+
+ 
+    
+    "pages/Devc/Devc",
+ 
+    "pages/show/show",
+    "pages/longtap/longtap",
+
+    "pages/charts/column/column",
+    "pages/charts/line/line",
+    "pages/charts/pie/pie",
+    "pages/charts/ring/ring"
+  
+   
+  ],
+  
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "车间状况",
+        "iconPath": "images/icons/icon_home.png",
+        "selectedIconPath": "images/icons/icon_home_active.png"
+      },
+      {
+        "pagePath": "pages/note1/note1",
+        "text": "文档管理",
+        "iconPath": "images/icons/icon_classify.png",
+        "selectedIconPath": "images/icons/icon_classify_active.png"
+
+      },
+      {
+              "pagePath": "pages/list/list",
+              "text": "报警日志",
+              "iconPath": "images/icons/index_icon.png",
+              "selectedIconPath": "images/icons/index_icon_HL.png"
+      }
+    ],
+    "color": "#000",
+    "selectedColor": "black"
+  },
+  "window": {
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "机联网查询系统",
+    "navigationBarTextStyle": "black"
+  }
+}

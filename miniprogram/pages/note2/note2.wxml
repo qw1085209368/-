@@ -1,0 +1,19 @@
+<!--note.wxml-->
+<view class="container">
+<!--<view class="text">
+<text >添加日志</text>
+</view>-->
+
+<!--<view class="title">-->
+<input placeholder="文件名" bindinput="bindTitle" class="title" maxlength="-1" auto-focus value="{{title}}"/>
+<!--</view>-->
+
+
+<!--<view class="title">-->
+<!-- <textarea class="content" placeholder="内容"   bindinput="bindContent"  value="{{content}}"/> -->
+<!--</view>-->
+
+<button class="button" type="primary" size="default" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="doUpload"  > 上传文件 </button>
+
+</view>

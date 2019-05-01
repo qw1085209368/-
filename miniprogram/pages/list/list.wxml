@@ -1,0 +1,46 @@
+<!--选项卡-->
+<view class="tabTit box tc bg_f">
+    <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" 
+    wx:key="" data-index="{{index}}" bindtap="filterTab">
+        <text>{{item}}</text>
+        <image src="/images/arrow.png"></image>
+    </view>
+    <view  ><button style="font-size:14px;color:#666;height:38px" bindtap="search">查询</button></view>
+    
+</view>
+
+
+<!--筛选项-->
+<view class="tabLayer tc" hidden="{{tab[0]}}">
+    <text class="{{Dp_id==0?'active':''}}" data-id='' data-index="0" data-txt="车间" bindtap="filter_01">不限</text>
+    <text class="{{Dp_id==item.id?'active':''}}" wx:for="{{Department}}" wx:key="" data-id="{{item.depart_id}}" data-index="0" data-txt="{{item.depart_name}}" bindtap="filter_01">{{item.depart_name}}</text>
+</view>
+<view class="tabLayer tc" hidden="{{tab[1]}}">
+    <text class="{{Dv_id==0?'active':''}}" data-devcid='' data-index="1" data-txt="设备" bindtap="filter">不限</text>
+    <text class="{{Dv_id==item.id?'active':''}}" wx:for="{{Devc}}" wx:key="" data-devcid="{{item.devc_id}}" data-index="1" data-txt="{{item.devc_name}}" bindtap="filter">{{item.devc_name}}</text>
+</view>
+<view class="tabLayer tc" hidden="{{tab[2]}}">
+    <text class="{{Dc_id==0?'active':''}}" data-codeid='' data-index="2" data-txt="Code" bindtap="filter">不限</text>
+    <text class="{{Dc_id==item.id?'active':''}}" wx:for="{{filterList.area_list}}" wx:key="" data-codeid="{{item.code}}" data-index="2" data-txt="{{item.code}}" bindtap="filter">code:{{item.code}}</text>
+</view>
+
+
+<view class="container">
+    <view class="table">
+        <view class="tr">
+            <!-- <view class="th">报警编号</view> -->
+            <view class="td">设备编号</view>
+            <view class="td">报警代码</view>
+            <view class="td">报警内容</view>
+            <view class="td">报警时间</view>
+        </view>
+
+        <view class="tr"  wx:for="{{Alarm}}">
+             <!-- <view class="td">{{item.alarm_id}}</view> -->
+               <view class="td">{{item.devc_id}}</view>
+              <view class="td">{{item.code}}</view>
+            <view class="td">{{item.alarm_text}}</view>
+            <view class="td">{{item.start_time}}</view>
+        </view>
+    </view>
+</view>

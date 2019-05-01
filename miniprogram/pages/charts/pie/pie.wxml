@@ -1,0 +1,11 @@
+<view class="container">
+    <canvas canvas-id="pieCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+    
+                        <view>设备编号：{{devc_status_time[0].devc_id}} </view>
+                        <view>运行时间：{{devc_status_time[1].sum_time}}分钟 </view>
+                        <view>空闲时间：{{devc_status_time[2].sum_time}}分钟 </view>
+                        <view>停机时间：{{devc_status_time[3].sum_time}}分钟 </view>
+
+
+</view>
+

@@ -1,0 +1,42 @@
+
+<view class="container">
+
+
+  <scroll-view scroll-y="true" class="scrollview" bindscrolltoupper="bindscrolltoupper">
+    <view wx:for="{{document}}" class="note" >
+      <!-- <navigator url="../note/note?title={{item.title}}&&content={{item.content}}" class="notenav"> -->
+        <view class="notecontent" data-_id='{{item._id}}'
+        bindtouchstart="handleTouchStart"bindtouchend="handleTouchEnd" 
+                  bindlongpress="handleLongPress"
+                  >
+          <text class="titletext">{{item.title}}</text>
+           <text class="timetext">创建者：{{item.uid}}</text>
+          <text class="timetext">{{item.time}}</text>
+         
+        </view>
+      <!-- </navigator> -->
+    </view>
+  </scroll-view>
+<!-- <button bindtap='down_file'>下载</button>
+<button bindtap='geturl'>下载2222</button> -->
+  <image src="./add.png" class="add" mode="aspectFit" bindtap="addnote"></image>
+  <!--<view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>-->
+</view>
+
+
+  <!--删除操作弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal&&flag==1}}">
+    <view class="modal-title">下载文档</view>
+    <view class="modal-content">
+         <text  class="modal-title" >确认下载？</text>
+    </view>
+
+    
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>

@@ -1,0 +1,105 @@
+
+<button bindtap="startBtn" >设备状态更新开始（测试）</button>
+
+<button bindtap="pauseBtn">设备更新停止（测试）</button>
+<view class="container">
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+
+ <view class="nav_top">
+    <block wx:for="{{navTopItems}}" wx:key="item.id">
+      <view class="nav_top_items {{curNavId == item.id ? 'active_'+colors[index] : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">
+        <image src="{{item.icon}}" mode="aspectFill"></image>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+    
+  </view> 
+
+
+  
+  <view class="nav_section">
+    <view wx:if="{{Department}}">
+        <block wx:for="{{Department}}" wx:key="item.depart_id">
+            <!-- 点击长按 -->
+            <view class="nav_section_items" bindtouchstart="handleTouchStart" 
+                bindtouchend="handleTouchEnd" 
+                bindlongpress="handleLongPress" data-department-id="{{item.depart_id}}">
+            
+                <view class="section_image" bindtouchstart="handleTouchStart"bindtouchend="handleTouchEnd" 
+                  bindlongpress="handleLongPress"  bindtap="navigateDetail" 
+                  data-department-id="{{item.depart_id}}">
+                <block wx:if="{{item.depart_coverpath}}">
+                    <image src="{{item.depart_coverpath }}" mode="aspectFill"></image>
+                </block>
+                <block wx:else>
+                    <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                </block>
+                </view>
+            
+                <view class="section_cont"  data-department-id="{{item.depart_id}}">
+                    <view class="section_cont_price">
+                        <text>{{item.depart_name}}</text>
+                    </view>
+                    <view  class="section_cont_sub" >设备运行状态：</view>
+                    <view>设备运行数量：{{item.total_01}}</view>
+                    <view>设备空闲数量：{{item.total_02}}</view>
+                    <view>设备离线数量：{{item.total_03}}</view>
+                  
+                </view>
+            
+                <view class="section_book" bindtap="navigateDetail" data-department-id="{{item.depart_id}}">
+                        <text>进入</text>
+                </view>
+            </view>
+
+                    <view class="nav_section_end" style="display:none"  bindtap="add_showDialogBtn" wx:if="{{index==Department.length-1}}">
+                     添加车间
+                    </view>
+        </block>
+
+    </view>
+    
+    <view wx:else>暂无数据</view>
+
+</view>
+
+</scroll-view>
+</view> 
+
+
+  <!--删除操作弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal&&flag==1}}">
+    <view class="modal-title">删除操作</view>
+    <view class="modal-content">
+         <text  class="modal-title" >确认删除？</text>
+    </view>
+
+    
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+
+    <!--添加操作弹窗-->
+  <view class="modal-mask" bindtap="add_hideModal" catchtouchmove="add_preventTouchMove" wx:if="{{add_showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{add_showModal}}">
+    <view class="modal-title">添加车间</view>
+    <view class="modal-content">
+      <!-- <view class="modal-input">
+        <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange_id"
+         value="{{telValue_id}}" class="input" placeholder="车间编号"></input>
+      </view> -->
+    <view class="modal-input">
+        <input placeholder-class="input-holder" maxlength="30" bindinput="inputChange_name"
+         value="{{telValue_name}}" class="input" placeholder="车间名称"></input>
+      </view>
+   
+   
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="add_onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="add_onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>

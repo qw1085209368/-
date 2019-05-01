@@ -1,0 +1,57 @@
+<view class="content">
+  <view class="bg">
+    <view class="head">
+  
+       <view class="headIcon">
+          <image src="{{userInfo.avatarUrl}}" style="width:70px;height:70px;"></image>
+       </view>
+       <view class="login">
+          {{userInfo.nickName}}
+       </view>
+       <view class="detail">
+         <text>></text>
+       </view>
+    </view>
+
+  </view>
+
+  <view class="nav">
+    <view class="nav-item">
+      <view>
+         <image src="/images/icons/shoucang.jpg" style="width:23px;height:23px;"></image>
+      </view>
+      <view>收藏</view>
+    </view>
+    <view class="nav-item">
+      <view>
+         <image src="/images/icons/lishi.jpg" style="width:23px;height:23px;"></image>
+      </view>
+      <view>历史</view>
+    </view>
+    <view class="nav-item">
+      <view>
+         <image src="/images/icons/yejian.jpg" style="width:23px;height:23px;"></image>
+      </view>
+      <view>夜间</view>
+    </view>
+  </view>
+  <view class="hr"></view>
+  <view class="item">
+     <view class="title">消息通知</view>
+     <view class="detail2">
+       <text>></text>
+     </view>
+  </view>
+
+
+
+  <view class="line"></view>
+  <view class="item">
+     <view class="title">用户反馈</view>
+     <view class="detail2">
+       <text> ></text>
+     </view>
+  </view>
+  
+<view class="hr"></view>
+</view>
