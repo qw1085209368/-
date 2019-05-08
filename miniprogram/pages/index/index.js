@@ -18,6 +18,7 @@ Page({
     timer:''       //计时器
   },
   onShow: function () {//页面显示时执行的操作
+   // this.onGotUserInfo(),
     this.onQuery_test('Department')
    //var _this = this;
   //   this.setData({                    //每隔一分钟刷新一次
@@ -57,8 +58,14 @@ Page({
     },
   //计时器end-------------
   onLoad: function () {
+
   
     this.onQuery_test('Department')
+  },
+  onGotUserInfo: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+
   },
   onUnload: function () {
     clearInterval(this.data.timer)//清除定时器

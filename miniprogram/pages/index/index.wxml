@@ -2,6 +2,7 @@
 <button bindtap="startBtn" >设备状态更新开始（测试）</button>
 
 <button bindtap="pauseBtn">设备更新停止（测试）</button>
+
 <view class="container">
 <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
 
@@ -20,14 +21,17 @@
   <view class="nav_section">
     <view wx:if="{{Department}}">
         <block wx:for="{{Department}}" wx:key="item.depart_id">
-            <!-- 点击长按 -->
+            <!-- 点击长按1 -->
             <view class="nav_section_items" bindtouchstart="handleTouchStart" 
                 bindtouchend="handleTouchEnd" 
                 bindlongpress="handleLongPress" data-department-id="{{item.depart_id}}">
-            
+                   <!-- 点击长按 2-->
                 <view class="section_image" bindtouchstart="handleTouchStart"bindtouchend="handleTouchEnd" 
                   bindlongpress="handleLongPress"  bindtap="navigateDetail" 
                   data-department-id="{{item.depart_id}}">
+
+
+
                 <block wx:if="{{item.depart_coverpath}}">
                     <image src="{{item.depart_coverpath }}" mode="aspectFill"></image>
                 </block>

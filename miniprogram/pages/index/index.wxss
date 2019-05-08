@@ -67,7 +67,7 @@
 }
 .search .search_btn{
     margin-top:14rpx;
-    color:#38b337;
+    color:#e40b0b;
     font-size:32rpx;
     margin-right:10rpx;
 }
@@ -79,7 +79,6 @@
     width:100%;
     box-sizing: border-box;
     padding:20rpx 10rpx;
-    background:url(../../images/black_line.png) repeat;
     color:#fff;
 }
 .nav_top_items{
@@ -95,7 +94,7 @@
     display: inline-block;
 }
 .nav_top .active{
-    color:#38b337;
+    color:#b33741;
 }
 .active_red{
     color:#e5004f;
@@ -188,7 +187,7 @@
 
 .show-btn {
     margin-top: 100rpx;
-    color: #22cc22;
+    color: #ff0000;
   }
   .modal-mask {
     width: 100%;

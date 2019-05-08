@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    flag:false,
     userInfo: {},
     title:'',
     content: '',
@@ -29,11 +30,26 @@ Page({
       //   title: options.title,
       //  // content:options.content
       // })
-     
+   // this.onGotUserInfo()
 
 
   },
+  onGotUserInfo: function (e) {
+    var that=this;
+    that.setData({
+      flag:true,
+    })
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    wx.showToast({
+      title: '获取成功',
+      icon: 'success',
+      duration: 1000,
 
+
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

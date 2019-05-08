@@ -1,38 +1,20 @@
-<view class="item"  catchtap="seeDetail"  data-chart-id='1'>
-   <view class="icon">
-      <image src="../../images/1-hj.jpg" style="width:70px;height:87px;"></image>
-   </view>
-   <view class="info">
-      <view class="name" >柱状图</view>
-   </view>
-   
-</view>
-
-
-<!-- <view class="item"  catchtap="seeDetail" data-chart-id="2" >
-   <view class="icon">
-      <image src="../../images/1-hj.jpg" style="width:70px;height:87px;"></image>
-   </view>
-   <view class="info">
-      <view class="name" id="2">折线图</view>
-   </view>
-</view> -->
 
 <view class="item"  catchtap="seeDetail" data-chart-id="3">
   <view class="icon">
-     <image src="../../images/1-hj.jpg" style="width:70px;height:87px;"></image>
+     <image src="../../images/bingtu.png" style="width:80px;height:80px;"></image>
   </view>
   <view class="info">
-     <view class="name" id="3">设备状态监控</view>
+     <view class="name" id="3" style="position:relative;top:28px">设备状态监控</view>
   </view>
 </view>
 
 <view class="item"  catchtap="seeDetail2" data-chart-id="4">
    <view class="icon">
-      <image src="../../images/1-hj.jpg" style="width:70px;height:87px;"></image>
+      <image src="../../images/quxiantu.png" style="width:70px;height:70px;"></image>
    </view>
+ 
    <view class="info" >
-      <view class="name" id="4">生产量曲线图</view>
+      <view class="name" id="4" style="position:relative;top:28px">生产量曲线图</view>
    </view>
 </view>
 

@@ -5,6 +5,8 @@
 </view>-->
 
 <!--<view class="title">-->
+<button class="button" type="primary" open-type="getUserInfo" hidden="{{flag}}" lang="zh_CN" bindgetuserinfo="onGotUserInfo">上传文件需获取用户信息</button>
+<view wx:if="{{flag==true}}">
 <input placeholder="文件名" bindinput="bindTitle" class="title" maxlength="-1" auto-focus value="{{title}}"/>
 <!--</view>-->
 
@@ -15,5 +17,7 @@
 
 <button class="button" type="primary" size="default" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="doUpload"  > 上传文件 </button>
+</view>
+
 
 </view>

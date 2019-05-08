@@ -22,9 +22,9 @@ var data = {
 Page({
     data: {
         data: [], //数据
-        Dp_id: 0, //户型
-        Dv_id: 0, //风格
-        Dc_id: 0, //面积
+        Dp_id: 0, //
+        Dv_id: 0, //
+        Dc_id: 0, //
         tabTxt: ['车间', '设备', 'Code'], //tab文案
         tab: [true, true, true],
         Department:[],
@@ -105,13 +105,15 @@ onQuery: function (id) {
 search:function(){
 
   var aa=this.data.Dp_id
-  var bb=this.data.Dc_id
-  var cc=this.data.Dv_id
-
+ 
+  var bb=this.data.Dv_id
+  var cc = this.data.Dc_id
     const db = wx.cloud.database()
 
     if(aa&&bb&&cc){
-        db.collection('Alarm').where({department_id:aa ,devc_id:bb,code:cc}).get({
+      console.log('devc_id',bb)
+      console.log('code', cc)
+        db.collection('Alarm').where({devc_id:bb,code:cc}).get({
             success: res => {
               this.setData({
                 Alarm: res.data
